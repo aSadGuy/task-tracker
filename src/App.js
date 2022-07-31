@@ -1,25 +1,91 @@
-import logo from './logo.svg';
-import './App.css';
+import AddTask from "./components/AddTask";
+import TaskList from "./components/TaskList";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState([]);
+
+  const deleteAll = () => {
+    setTasks([]);
+  };
+
+  console.log(tasks);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+        }}
+        animate={{
+          y: tasks.length > 5 ? "-30vh" : 0,
+        }}
+        transition={{
+          ease: "easeOut",
+          duration: 0.5,
+        }}
+      >
+        <motion.div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+          }}
+          animate={{
+            y: tasks.length > 0 ? -57 : 0,
+          }}
+          transition={{
+            ease: "easeOut",
+            duration: 0.5,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <AddTask tasks={tasks} setTasks={setTasks} />
+        </motion.div>
+
+        <motion.div>
+          <TaskList tasks={tasks} setTasks={setTasks} />
+        </motion.div>
+
+        <AnimatePresence>
+          {tasks.length > 0 && (
+            <motion.button
+              style={{
+                y: "40px",
+              }}
+              initial={{
+                x: "80px",
+                opacity: "0%",
+              }}
+              animate={{
+                x: "7px",
+                opacity: "100%",
+                y: "-21px",
+              }}
+              transition={{
+                ease: "easeOut",
+                duration: 0.5,
+              }}
+              exit={{
+                x: "80px",
+                opacity: "0%",
+                y: "40px",
+              }}
+              onClick={deleteAll}
+              className="delete-all-btn"
+            >
+              <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </motion.div>
+      {tasks.length > 6 && <div className="gradient"></div>}
+    </>
   );
-}
+};
 
 export default App;
