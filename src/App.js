@@ -7,9 +7,19 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+  const [scrollVisible, setScrollVisible] = useState(true);
 
   const deleteAll = () => {
     setTasks([]);
+  };
+
+  const handleScroll = (e) => {
+    const bottom =
+      e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+    if (bottom) {
+      setScrollVisible(false);
+      console.log("BOTTOM");
+    }
   };
 
   console.log(tasks);
@@ -17,6 +27,7 @@ const App = () => {
   return (
     <>
       <motion.div
+        onScroll={handleScroll}
         style={{
           position: "absolute",
           top: "50%",
@@ -83,7 +94,10 @@ const App = () => {
           )}
         </AnimatePresence>
       </motion.div>
-      {tasks.length > 6 && <div className="gradient"></div>}
+      {tasks.length > 6 && scrollVisible && (
+        <div className="gradient-bottom"></div>
+      )}
+      <div className="gradient-bottom-fill"></div>
     </>
   );
 };

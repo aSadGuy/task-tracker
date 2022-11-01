@@ -87,8 +87,13 @@ body {
   /* border: 1px red solid; */
   overflow-y: auto;
   overflow-x: hidden;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
-.gradient {
+.tasks-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+.gradient-bottom {
   position: absolute;
   margin: 0px auto;
   left: 50%;
@@ -99,6 +104,17 @@ body {
   width: 400px;
   height: 50px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0), black);
+}
+.bottom-fill {
+  position: absolute;
+  margin: 0px auto;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  border: 2px blue dotted;
+  width: 400px;
+  height: 35px;
+  overflow-y: auto;
 }
 
 .taskTheme {

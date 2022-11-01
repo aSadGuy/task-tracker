@@ -1,7 +1,8 @@
 import Task from "./Task";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 function TaskList({ tasks, setTasks }) {
+
   return (
     <div>
       <div className="tasks-container">
