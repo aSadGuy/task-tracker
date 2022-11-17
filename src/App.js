@@ -22,8 +22,6 @@ const App = () => {
     }
   };
 
-  console.log(tasks);
-
   return (
     <>
       <motion.div
