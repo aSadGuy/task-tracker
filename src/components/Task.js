@@ -7,6 +7,7 @@ function Task({ text, tasks, setTasks, task }) {
   const [complete, setComplete] = useState(false);
   const [priority, setPriority] = useState(false);
   const [animation, setAnimation] = useState(false);
+  const [edit, setEdit] = useState(false);
 
   const handleDelete = () => {
     setTasks(tasks.filter((t) => t.id !== task.id));
@@ -55,6 +56,7 @@ function Task({ text, tasks, setTasks, task }) {
           className="taskTheme"
         >
           <div className={complete ? "completed-task" : ""}>{text}</div>
+
           <div onClick={handleDelete} className="delete-btn">
             ×
           </div>

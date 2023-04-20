@@ -43,7 +43,7 @@ body {
 
 .submit-btn {
   position: fixed;
-  top: 59%;
+  top: 60%;
   left: 45%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -70,19 +70,19 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Task styles*/
+/*
+ * TASK STYLES
+*/
 
 .tasks-container {
   position: absolute;
   margin: 0px auto;
   text-align: center;
-  width: 400px;
-  /* height: 200px; */
   height: 73vh;
+  width: 400px;
   left: 50%;
-  top: 50%;
-  margin-top: 260px;
-  transform: translate(-50%, -50%);
+  top: 30px;
+  margin-left: -200px;
   z-index: 1;
   /* border: 1px red solid; */
   overflow-y: auto;
@@ -90,6 +90,7 @@ body {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
 }
+
 .tasks-container::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }

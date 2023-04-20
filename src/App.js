@@ -73,7 +73,7 @@ const App = () => {
               animate={{
                 x: "7px",
                 opacity: "100%",
-                y: "-21px",
+                y: "-17px",
               }}
               transition={{
                 ease: "easeOut",
