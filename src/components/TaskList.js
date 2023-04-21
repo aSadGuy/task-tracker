@@ -2,7 +2,6 @@ import Task from "./Task";
 import { motion } from "framer-motion";
 
 function TaskList({ tasks, setTasks }) {
-
   return (
     <div>
       <div className="tasks-container">
@@ -19,6 +18,8 @@ function TaskList({ tasks, setTasks }) {
             </div>
           </motion.div>
         ))}
+        {tasks.length > 6 && <div className="gradient-bottom"></div>}
+        <div className="gradient-bottom-fill"></div>
       </div>
     </div>
   );
